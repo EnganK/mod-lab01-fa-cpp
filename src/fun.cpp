@@ -18,8 +18,7 @@ unsigned int faStr1(const char* str) {
             inWord = true;
             if (isdigit(str[i]))
                 hasDigit = true;
-        }
-        else {
+        } else {
             if (inWord && !hasDigit)
                 count++;
             inWord = false;
@@ -43,16 +42,15 @@ unsigned int faStr2(const char* str) {
                 if (isupper(str[i]) && isLatinLetter(str[i])) {
                     inWord = true;
                     isValid = true;
-                }
-                else {
+                } else {
                     inWord = false;
                     isValid = false;
                 }
+            } else {
+                if (!islower(str[i]) || !isLatinLetter(str[i]))
+                    isValid = false;
             }
-            else if (!islower(str[i]) || !isLatinLetter(str[i]))
-                isValid = false;
-        }
-        else {
+        } else {
             if (inWord && isValid)
                 count++;
             inWord = false;
@@ -60,7 +58,7 @@ unsigned int faStr2(const char* str) {
         }
     }
 
-    if (inWord && isValid) 
+    if (inWord && isValid)
         count++;
     return count;
 }
@@ -75,8 +73,7 @@ unsigned int faStr3(const char* str) {
             if (!inWord)
                 inWord = true;
             totalLength++;
-        }
-        else {
+        } else {
             if (inWord) {
                 wordCount++;
                 inWord = false;
